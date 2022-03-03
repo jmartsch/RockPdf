@@ -64,6 +64,16 @@ class RockPdf extends WireData implements Module {
     $this->addHtml([$key, $value]);
     $this->mpdf->{$key}($value);
   }
+  
+  public function setHTMLHeader($data) {
+    $this->addHtml($data);
+    $this->mpdf->SetHTMLHeader($data, '', true);
+  }
+
+  public function setHTMLFooter($data) {
+    $this->addHtml($data);
+    $this->mpdf->SetHTMLFooter($data);
+  }
 
   /* ########## output ########## */
 
